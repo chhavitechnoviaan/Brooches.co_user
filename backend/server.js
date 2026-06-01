@@ -44,7 +44,7 @@ app.use(
 );
 
 // Preflight requests handle karo
-app.options("*", cors());
+app.options(/.*/, cors());
 
 // app.use("/uploads", express.static("uploads"));
 
