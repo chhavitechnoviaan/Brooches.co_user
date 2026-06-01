@@ -33,13 +33,18 @@ connectDB();
 // MIDDLEWARE
 app.use(express.json());
 
+
 app.use(
   cors({
-  origin: ["http://localhost:5173", "https://yourdomain.com"],
-  credentials: true,
-})
+    origin: true,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
 );
 
+// Preflight requests handle karo
+app.options("*", cors());
 
 // app.use("/uploads", express.static("uploads"));
 
